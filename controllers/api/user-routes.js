@@ -147,20 +147,20 @@ router.post('/login', async (req, res) => {
 
         const dbUserData = await User.findOne({
 
-          where: {
+            where: {
 
-            email: req.body.email,
+                email: req.body.email,
 
-          },
+            },
 
         });
     
         if (!dbUserData) {
 
-          res
+            res
             .status(400)
             .json({ message: 'No user was found with that email' });
-          return;
+            return;
 
         }
 
@@ -169,17 +169,17 @@ router.post('/login', async (req, res) => {
     
         if (!validPassword) {
 
-          res
+            res
             .status(400)
             .json({ message: 'Incorrect password. Please try again!' });
-          return;
+            return;
 
         }
     
         req.session.save(() => {
 
-          req.session.loggedIn = true;
-          res
+            req.session.loggedIn = true;
+            res
             .status(200)
             .json({ user: dbUserData, message: 'You are now logged in!' });
 
@@ -192,6 +192,28 @@ router.post('/login', async (req, res) => {
 
       }
 
+});
+
+//POST for logout session
+router.post('/logout', async (req, res) => {
+
+    if (req.session.loggedIn) {
+
+        res
+        .status(200)
+        .json({ message: 'You are now logged out!' });
+
+        req.session.destroy(() => {
+
+          res.status(204).end();
+
+        });
+
+      } else {
+
+        res.status(404).end();
+
+      }
 });
 
 module.exports = router;
