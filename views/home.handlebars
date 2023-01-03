@@ -1,9 +1,17 @@
-<div class="col ps-md-2 pt-2">
-    <div class="page-header ">
-        <div class="navbar navbar-expand-md   px-0 sticky-top">
-            <div class="container-fluid">
-                <h2>Welcome</h2>
-            </div>
+<div class="container">
+{{#each posts as |post|}}
+    </br>
+    <div class="card linkcard" role="button" id="{{post.id}}" onclick="viewPost({{post.id}})">
+        <h5 class="card-header">
+            {{post.title}}
+        </h5>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer"><cite title="Source Title">Posted by {{post.user.user_name}} on {{format_time post.createdAt}}</cite></footer>
+            </blockquote>
+            <p class="card-text">{{post.description}}</p>
         </div>
     </div>
+{{/each}}
 </div>
+<script src="./js/post.js"></script>
