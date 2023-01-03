@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tech Blog</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/9a0f342128.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">The Tech Blog <i class="fa-solid fa-rss"></i> </a>
+        {{#if loggedIn}}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Dashboard</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a id="signoutButton" href="/" class="nav-link px-0 align-middle">
+              Sign Out
+              </a>
+            </li>
+          </ul>
+          </span>
+        </div>
+        {{else}}
+        <!--div><span class="pull-right"><a href="/login" class="nav-link px-0 align-middle">Sign in</a></span></div>
+        <div><span class="pull-right"><a href="/signup" class="nav-link px-0 align-middle">Sign up</a></span></div-->
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/login">Log In  <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+        {{/if}}
+    </nav>
+  
+    {{{body}}}
+
+</body>
+{{#if loggedIn}}
+<script src="./js/signout.js"></script>
+{{/if}}
+</html>
