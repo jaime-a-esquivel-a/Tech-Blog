@@ -7,5 +7,9 @@ module.exports = {
         date.getFullYear(),
       ].join('/');
     },
+
+    /*print_session: (name) => {
+      return session.get(name);
+    },*/
     
 };

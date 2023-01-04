@@ -4,18 +4,23 @@
         <div class="card text-center m-auto" style="width: 25rem;">
             <div class="card-body">
                 <h5 class="card-title"><h5>Sign Up</h5>
-                    <!--User -->
-                    <input type="text" class="form-control text-center my-2 bg-light" id="signupUser"  placeholder="e-mail" aria-label="e-mail" aria-describedby="addon-wrapping">
-                    <!--UserName -->
+                    <!--E-mail-->
+                    <input type="text" class="form-control text-center my-2 bg-light" id="signupEmail"  placeholder="e-mail" aria-label="e-mail" aria-describedby="addon-wrapping">
+                    <!--UserName-->
                     <input type="text" class="form-control text-center my-2 bg-light" id="signupUsername"  placeholder="Username" aria-label="username" aria-describedby="addon-wrapping">  
-                    <!--Password -->
+                    <!--Password-->
                     <input type="password" class="form-control text-center my-2 bg-light" id="signupPass" placeholder="Password" aria-label="password" aria-describedby="addon-wrapping">          
                 <div class="d-grid gap-2">
-                    <!--LoginBtn -->
+                    <!--SignUpBtn-->
                     <button class="btn btn-dark" type="submit" id="btnSubmit">Next</button>
                 </div >
+                <div class="d-grid gap-2">
+                    <!--MessageBar-->
+                    <p class="card-text" id="signupMsgBar"></p>
+                </div>
             </div>
         </div>
     </div>
 </form>
 </div>
+<script src="./js/signup.js"></script>
