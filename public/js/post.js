@@ -14,6 +14,8 @@ for (let i = 0; i < posts.length; i++){
 
 function viewPost(postid){
 
-    window.location.href = (`/post/${postid}`);
+    //window.location.href = (`/post/${postid}`);
+
+    document.location.replace(`/post/${postid}`);
     
 }

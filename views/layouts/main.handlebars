@@ -12,31 +12,35 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/">The Tech Blog <i class="fa-solid fa-rss"></i> </a>
         {{#if loggedIn}}
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <p class="nav-link" href="/">Welcome {{userName}}</p>
+            </li>
+            <li class="nav-item active">
+              <p class="nav-link" href="/">|</p>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
+              <a class="nav-link" href="/">Dashboard</a>
             </li>
-          </ul>
-        </div>
-        <div>
-          <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a id="signoutButton" href="/" class="nav-link px-0 align-middle">
+              <p class="nav-link" href="/">|</p>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" id="signoutButton" href="/">
               Sign Out
               </a>
             </li>
           </ul>
-          </span>
         </div>
         {{else}}
         <!--div><span class="pull-right"><a href="/login" class="nav-link px-0 align-middle">Sign in</a></span></div>
         <div><span class="pull-right"><a href="/signup" class="nav-link px-0 align-middle">Sign up</a></span></div-->
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/login">Log In  <span class="sr-only">(current)</span></a>
@@ -53,6 +57,6 @@
 
 </body>
 {{#if loggedIn}}
-<script src="./js/signout.js"></script>
+<script src="/js/signout.js"></script>
 {{/if}}
 </html>
