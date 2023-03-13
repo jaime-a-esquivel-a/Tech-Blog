@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { PostHeader, User } = require ('../models/');
+const { PostHeader, User, PostComment } = require ('../models/');
 
 router.get('/', async (req, res) => {
 
@@ -46,5 +46,49 @@ router.get('/signup', async (req, res) => {
 
 });
 
+router.get('/post/:id', async (req, res) => {
+
+    try{
+
+        const postData = await PostHeader.findOne({
+            where: {
+                id: req.params.id,
+            },
+            include: [ 
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+                {
+                    model: PostComment,
+                    attributes: ['text', 'deleted', 'createdAt'],
+                    include: {
+                        model: User,
+                        attributes: ['user_name'],
+                    }
+                },
+            ] 
+        });
+
+        //res.status(200).json(postData);
+
+        const arrPost = [];
+        arrPost.push(postData);
+
+        const posts = arrPost.map((post) =>
+            post.get({ plain: true })
+        );
+
+        res.render('post', {
+            posts,
+            loggedIn: req.session.loggedIn,
+            userName: req.session.userName,
+        });
+
+    }catch (error){
+        res.status(500).json(error);
+    }
+
+});
 
 module.exports = router;

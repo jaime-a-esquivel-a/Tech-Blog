@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const { PostHeader, User, PostComment } = require ('../models/');
+const withAuth = require("../utils/auth.js");
 
 router.get('/', async (req, res) => {
 
     try{
 
         const postsData = await PostHeader.findAll({
+            where: {
+                user_id: req.session.userId,
+            },
             include: [ 
                 {
                     model: User,
@@ -23,63 +27,20 @@ router.get('/', async (req, res) => {
         const posts = postsData.map((post) =>
             post.get({ plain: true })
         );
-
-        res.status(200).json(posts);
-
+        res.render('postheader', {
+            posts,
+            loggedIn: req.session.loggedIn,
+            userName: req.session.userName,
+        });
+        
     } catch (error){
         res.status(500).json(error);
     }
     
 });
 
-router.get('/:id', async (req, res) => {
-
-    try{
-
-        const postData = await PostHeader.findOne({
-
-            where: {
-                id: req.params.id,
-            },
-
-            include: [ 
-                {
-                    model: User,
-                    attributes: ['user_name'],
-                },
-                {
-                    model: PostComment,
-                    attributes: ['text', 'deleted', 'createdAt'],
-                    include: {
-                        model: User,
-                        attributes: ['user_name'],
-                    }
-                },
-
-            ]
-            
-        });
-
-        //res.status(200).json(postData);
-
-        const arrPost = [];
-        arrPost.push(postData);
-
-        const posts = arrPost.map((post) =>
-            post.get({ plain: true })
-        );
-
-        res.render('post', {
-            posts,
-            loggedIn: req.session.loggedIn,
-            userName: req.session.userName,
-        });
-
-
-    }catch (error){
-        res.status(500).json(error);
-    }
-
+router.get('/new', (req, res) => {
+    res.render("add-post");
 });
 
 module.exports = router;

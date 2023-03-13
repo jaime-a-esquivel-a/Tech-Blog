@@ -180,11 +180,14 @@ router.post('/login', async (req, res) => {
 
             req.session.loggedIn = true;
             req.session.userName = dbUserData.user_name;
+            req.session.userId = dbUserData.id;
             res
             .status(200)
             .json({ user: dbUserData, message: 'You are now logged in!' });
 
         });
+
+        console.log(req.session.userId);
 
       } catch (err) {
 

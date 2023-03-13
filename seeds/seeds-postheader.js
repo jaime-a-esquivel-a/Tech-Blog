@@ -6,6 +6,11 @@ const PostHeaderData = [
         title: 'FIRST POST HEADER',
         description: 'Test Post header',
     },
+    {
+        user_id: 2,
+        title: 'SECOND POST HEADER',
+        description: 'Test Post header',
+    },
 ];
 
 const seedPostHeaders = () => PostHeader.bulkCreate(PostHeaderData);

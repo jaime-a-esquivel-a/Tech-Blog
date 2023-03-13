@@ -7,7 +7,7 @@ const postHeaderRoutes = require('./postheader-routes.js');
 
 router.use('/', homeRoutes);
 router.use('/api', apiRoutes);
-router.use('/post', postHeaderRoutes);
+router.use('/postHeader', postHeaderRoutes);
 //router.use('/comment', postCommentRoutes);
 
 module.exports = router;

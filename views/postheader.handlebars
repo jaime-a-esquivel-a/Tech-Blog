@@ -1,0 +1,28 @@
+
+
+<h2>My Posts</h2>
+{{#each posts as |post|}}
+<div class="container">
+    <div class="card linkcard" role="button" id="{{post.id}}" onclick="viewPost({{post.id}})">
+        <div class="card-header">
+              <h3>{{post.title}}</h3>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <footer class="blockquote-footer"><cite title="Source Title">Posted by {{post.user.user_name}} on {{format_time post.createdAt}}</cite></footer>
+            </blockquote>
+            <p class="card-text">{{post.description}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="#" class="btn btn-danger">Go somewhere</a>
+        </div>
+    </div>
+</div>
+</br>
+{{/each}}
+</br>
+</br>
+<div class="container">
+<a href="/postHeader/new" class="btn btn-success">Go somewhere</a>
+</div>
+
+<script src="./js/postHeader.js"></script>
