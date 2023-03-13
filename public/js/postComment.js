@@ -3,8 +3,8 @@ document.getElementById("new-comment-form").addEventListener("submit", newCommen
 async function newCommentHandler(event) {
     event.preventDefault();
 
-    const postId = document.getElementById('inputUserId').value;
-    const userId = document.getElementById('inputPostId').value;
+    const userId = document.getElementById('inputUserId').value;
+    const postId = document.getElementById('inputPostId').value;
     const commentText = document.getElementById('inputCommentText').value;
 
     console.log(postId);

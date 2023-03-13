@@ -46,6 +46,48 @@ router.get('/new', (req, res) => {
     });
 });
 
+router.get('/edit/:id', async (req, res) => {
+
+    try{
+
+        const postData = await PostHeader.findOne({
+            where: {
+                id: req.params.id,
+            },
+            include: [ 
+                {
+                    model: User,
+                    attributes: ['user_name'],
+                },
+            ] 
+        });
+
+        //res.status(200).json(postData);
+
+        const arrPost = [];
+        arrPost.push(postData);
+
+        const posts = arrPost.map((post) =>
+            post.get({ plain: true })
+        );
+
+        console.log(req.session.userName);
+        console.log(req.session.loggedIn);
+
+        res.render('edit-post', {
+            posts,
+            loggedIn: req.session.loggedIn,
+            userName: req.session.userName,
+            userId:   req.session.userId,
+            postId:   req.params.id,
+        });
+
+    }catch (error){
+        res.status(500).json(error);
+    }
+
+});
+
 router.post("/", withAuth, async (req, res) => {
 
     /*console.log(req.body.title);
@@ -87,6 +129,30 @@ router.post("/comment/:id", withAuth, async (req, res) => {
     }
 
 });
+
+router.put("/:id", withAuth, (req, res) => {
+
+    console.log(req.body.postId);
+    console.log(req.body.title);
+    console.log(req.body.description);
+
+    try{
+        const postData = PostHeader.update({
+            title: req.body.title,
+            description: req.body.description,
+        },{
+        where: {
+            id: req.body.postId
+        }});
+
+        res.status(200).json(postData);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
+
 
 router.delete("/:id", withAuth, async (req, res) => {
 
