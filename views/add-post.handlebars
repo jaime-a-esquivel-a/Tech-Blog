@@ -1,12 +1,16 @@
 <div class="container">
+<h2>New Post</h2>
+</div>
+<div class="container">
     <form class="row g-3" id="new-post-form">
         <div class="mb-3">
-            <label for="inputPostTitle" class="form-label">New Post:</label>
+            <label for="inputPostTitle" class="form-label">Title:</label>
             <input type="text" class="form-control" id="inputPostTitle" placeholder="Post Title...">
         </div>
         <div class="mb-3">
             <label for="inputPostText" class="form-label">Content:</label>
-            <input type="text" class="form-control" id="inputPostText" placeholder="Post Content...">
+            <!--input type="text" class="form-control" id="inputPostText" placeholder="Post Content..."-->
+            <textarea class="form-control" id="inputPostText" rows="3" placeholder="Post Content..."></textarea>
         </div>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">POST</button>

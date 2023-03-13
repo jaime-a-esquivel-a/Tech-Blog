@@ -14,7 +14,7 @@
     </div>
     </br> 
 
-    {{#if post.postcomments}}
+
         {{#each post.postcomments as |comment|}}
             <div class="card">
                 <div class="card-body">
@@ -25,8 +25,30 @@
                 </div>
             </div>
         {{/each}}
-    {{/if}}
+
+    </br>
 
 {{/each}}
 </div>
-<!--script src="./js/login.js"></script-->
+{{#if loggedIn}}
+    <div class="container">
+        <form class="row g-3" id="new-comment-form">
+            <div class="mb-3">
+                <input type="text" class="form-control invisible" id="inputUserId" value={{userId}}>
+                <input type="text" class="form-control invisible" id="inputPostId" value={{postId}}>
+            </div>
+            <div class="mb-3">
+                <label for="inputCommentText" class="form-label">Comment:</label>
+                <textarea class="form-control" id="inputCommentText" rows="3" placeholder="Content..."></textarea>
+            </div>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Add Comment</button>
+            </div>
+        </form>
+    </div>
+<script src="../js/postComment.js"></script>
+{{/if}}
+
+
+
+

@@ -79,10 +79,15 @@ router.get('/post/:id', async (req, res) => {
             post.get({ plain: true })
         );
 
+        console.log(req.session.userName);
+        console.log(req.session.loggedIn);
+
         res.render('post', {
             posts,
             loggedIn: req.session.loggedIn,
             userName: req.session.userName,
+            userId:   req.session.userId,
+            postId:   req.params.id,
         });
 
     }catch (error){
