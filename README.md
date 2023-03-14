@@ -11,37 +11,38 @@ App is developed as an MVC using express-handlebars, MySQL and Sequelize.
 
 [Deployed App](https://tech-blog-jaea.herokuapp.com/)
 
-## Installation  
-
 ## Usage  
 
-The Home screen displays the posts created by registered users. In this home screen you can onluy display the posts and comments.  
+The Home screen displays the posts created by registered users. In this home screen you can only display the posts and comments.  
 To create your own posts or participate adding comments to other's posts click on "Sign Up" to register.  
 
 <img src="assets/images/home.png" alt="Home" style="width:1000px;"/>
 
-The Sign Up screen  
+The Sign Up screen allows you to register by creating a new user.  
 <img src="assets/images/signUp.png" alt="Sign Up" style="width:1000px;"/>
 
-The Log In screen  
+The Log In screen allows you to sign in using your credentials.  
 <img src="assets/images/logIn.png" alt="Log In" style="width:1000px;"/>
 
-The Initial screen  
+The Initial screen allows you to see all the posts created in the app. 
+You can then click on any of the post to enter the comments section.  
 <img src="assets/images/init.png" alt="Initial Screen" style="width:1000px;"/>
 
-The Post/Comments screen  
+The Post comments screen displays all the comments from you or other users related to a given post.  
+You can add a new comment here.  
 <img src="assets/images/singlePost.png" alt="Post Screen" style="width:1000px;"/>
 
-The Dashboard screen  
+The Dashboard screen displays all the post created by you.  
+Here you can create, edit or delete your posts.  
 <img src="assets/images/dashboard.png" alt="Dashboard" style="width:1000px;"/>
 
-Delete Post screen  
+Delete Post, this can be done from the dashboard screen clicking the delete button.  
 <img src="assets/images/deletePost.png" alt="Delete Post" style="width:1000px;"/>
 
-Edit Post screen  
+The edit Post screen can be accessed via your dashboard, here you can update the contents of an existing post.  
 <img src="assets/images/editPost.png" alt="Edit Post" style="width:1000px;"/>
 
-New Post screen  
+The new Post screen can be accessed via your dashboard, enter here to create a new post.  
 <img src="assets/images/newPost.png" alt="New Post" style="width:1000px;"/>
 
 ## Technologies  
