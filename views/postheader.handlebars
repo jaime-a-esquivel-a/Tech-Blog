@@ -12,7 +12,7 @@
                 <footer class="blockquote-footer"><cite title="Source Title">Posted by {{post.user.user_name}} on {{format_time post.createdAt}}</cite></footer>
             </blockquote>
             <p class="card-text">{{post.description}}</p>
-            <a href="/postHeader/edit/{{post.id}}" class="btn btn-primary">Edit</a>
+            <a href="/postHeader/edit/{{post.id}}" class="btn btn-primary">Edit</a> 
             <a class="btn btn-danger" onclick="deletePost({{post.id}})">Delete</a>
         </div>
     </div>
@@ -24,5 +24,6 @@
 <div class="container">
 <a href="/postHeader/new" class="btn btn-success">New Post</a>
 </div>
+
 
 <script src="../js/postHeader.js"></script>
